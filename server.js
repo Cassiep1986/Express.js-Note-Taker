@@ -1,7 +1,5 @@
 const fs = require("fs/promises");
-
 const express = require("express");
-const { accessSync } = require("fs");
 const app = express();
 
 const PORT = 8080;
@@ -29,14 +27,21 @@ app.get("/api/notes", async function (req, res) {
     }
 });
 
-app.post("api/notes", function (req, res) {
-    console.log(req.body);
-  res.json([
-    {
-      title: "Test Title",
-      text: "Test text",
-    },
-  ]);
+app.post("/api/notes", async function (req, res) {
+  const notes = req.body;
+  console.log(notes);
+  try {
+    const data = await fs.readFile("./db/db.json", "utf8");
+
+    const parse = JSON.parse(data);
+    parse.push(notes);
+    fs.writeFile("./db/db.json", JSON.stringify(parse)).then (
+      fs.readFile("./db/db.json", "utf8")
+    ).then (res.send(JSON.parse(data)))
+  
+}catch (err) {
+  throw err
+}
 });
 
 app.listen(PORT, () =>
