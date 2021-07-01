@@ -12,7 +12,7 @@ This application enables the user to create and save notes.
 - [Questions](#Questions)
 
 ## Installation
-This application is deployed [here] (https://express-note-taker-cp.herokuapp.com/). To use this application, download index.js and generateMarkdown.js files from this repository. Install dependencies inquirer (command npm i inquirer) and package.json(command npm init). Note: This application requiers installation of both node.js and npm.
+This application is deployed [here](https://express-note-taker-cp.herokuapp.com/). To use this application, download index.js and generateMarkdown.js files from this repository. Install dependencies inquirer (command npm i inquirer) and package.json(command npm init). Note: This application requiers installation of both node.js and npm.
 
 
 
