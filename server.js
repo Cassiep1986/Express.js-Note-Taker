@@ -1,5 +1,6 @@
 const fs = require("fs/promises");
 const express = require("express");
+const uuid = require("uuid");
 const app = express();
 
 const PORT = 8080;
@@ -32,8 +33,8 @@ app.post("/api/notes", async function (req, res) {
   console.log(notes);
   try {
     const data = await fs.readFile("./db/db.json", "utf8");
-
     const parse = JSON.parse(data);
+    notes.id = uuid.v1();
     parse.push(notes);
     fs.writeFile("./db/db.json", JSON.stringify(parse)).then (
       fs.readFile("./db/db.json", "utf8")
