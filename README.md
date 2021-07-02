@@ -28,7 +28,7 @@ To contribute to this repo, please contact me on GITHUB or by email (Link below)
 ## Demo Video
 
 The following animation shows the application's inital steps for starting the application:
-(./Note-Taker.gif)
+![Note-Taker demo](./Note-Taker.gif)
 
 
 ## Questions
